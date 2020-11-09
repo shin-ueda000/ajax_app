@@ -8,6 +8,9 @@ class PostsController < ApplicationController
     redirect_to action: :index
   end
 
+  def create
+    @post = Post.create(content: params[:content], checked: false)
+  end
   def checked
     post = Post.find(params[:id])
     if post.checked
